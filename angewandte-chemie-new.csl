@@ -1,33 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <style xmlns="http://purl.org/net/xbiblio/csl" class="in-text" version="1.0" demote-non-dropping-particle="sort-only" default-locale="en-US">
   <info>
-    <title>Angewandte Chemie International Edition</title>
-    <id>http://www.zotero.org/styles/angewandte-chemie</id>
-    <link href="http://www.zotero.org/styles/angewandte-chemie" rel="self"/>
-    <link href="https://onlinelibrary.wiley.com/page/journal/15213773/homepage/notice-to-authors" rel="documentation"/>
+    <title>Advanced Materials - Mo Yan</title>
+    <id>https://csl.mendeley.com/styles/782818301/ChemistryEurope</id>
+    <link href="http://www.zotero.org/styles/advanced-materials" rel="self"/>
+    <link href="http://www.zotero.org/styles/small" rel="template"/>
+    <link href="https://onlinelibrary.wiley.com/page/journal/15214095/homepage/author-guidelines" rel="documentation"/>
     <author>
-      <name>Richard Karnesky</name>
-      <email>karnesky+zotero@gmail.com</email>
-      <uri>http://arc.nucapt.northwestern.edu/Richard_Karnesky</uri>
+      <name>Jimmy Lawrence</name>
+      <email>jimmymisc@gmail.com</email>
+      <uri>http://pse.umass.edu</uri>
     </author>
     <contributor>
-      <name>Sebastian Karcher</name>
+      <name>Mo Yan</name>
+      <uri></uri>
     </contributor>
     <category citation-format="numeric"/>
     <category field="engineering"/>
-    <!--<category term="materials science"/>-->
-    <category field="chemistry"/>
-    <issn>1433-7851</issn>
-    <eissn>1521-3773</eissn>
-    <summary>A style for Wiley-VCH's journal "Angewandte Chemie International Edition"
-This style has many limits due to csl constraints, most notably the inability to include pages/page ranges for books, the wrong square brackets for two items cited together, and the lack of support for citing 1a)... b)...c)....</summary>
-    <updated>2020-05-17T03:14:19+00:00</updated>
+    <issn>0935-9648</issn>
+    <eissn>1521-4095</eissn>
+    <summary>A style for Wiley's Advanced Materials</summary>
+    <updated>2025-06-12T11:00:36+00:00</updated>
     <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
   </info>
   <macro name="author">
     <names variable="author">
       <name initialize-with=". " delimiter=", " delimiter-precedes-last="always"/>
-      <label form="short" prefix=", " text-case="capitalize-first" suffix=" "/>
+      <label form="short" text-case="capitalize-first" prefix=", "/>
       <substitute>
         <names variable="editor"/>
         <names variable="translator"/>
@@ -37,7 +36,7 @@ This style has many limits due to csl constraints, most notably the inability to
   <macro name="editor">
     <names variable="editor">
       <label form="short" text-case="capitalize-first" suffix=".: " strip-periods="true"/>
-      <name initialize-with="." delimiter=", " delimiter-precedes-last="always"/>
+      <name delimiter-precedes-last="always" initialize-with=". "/>
     </names>
   </macro>
   <macro name="year-date">
@@ -84,7 +83,7 @@ This style has many limits due to csl constraints, most notably the inability to
     <sort>
       <key variable="citation-number"/>
     </sort>
-    <layout vertical-align="sup" delimiter="," prefix="[" suffix="]">
+    <layout prefix="[" suffix="]" delimiter="," vertical-align="sup">
       <text variable="citation-number"/>
     </layout>
   </citation>
@@ -129,7 +128,7 @@ This style has many limits due to csl constraints, most notably the inability to
             <text macro="year-date"/>
           </group>
         </else-if>
-        <else-if type="webpage">
+        <else-if type="webpage post post-weblog" match="any">
           <group delimiter=", ">
             <text variable="title" quotes="true"/>
             <text macro="access"/>
@@ -137,16 +136,19 @@ This style has many limits due to csl constraints, most notably the inability to
           </group>
         </else-if>
         <else>
-  <group delimiter=", ">
-    <text macro="author"/>
-    <text variable="title" font-style="italic"/>
-    <text macro="year-date"/>
-    <text variable="container-title" form="short" font-style="italic"/>
-    <text variable="volume" font-style="italic"/>
-    <text variable="page"/>
-    <text macro="access"/>
-  </group>
-</else>
+          <group delimiter=" ">
+            <text variable="title" quotes="true" suffix=". "/>
+            <text variable="container-title" form="short" font-style="italic"/>
+            <group delimiter=", ">
+              <text macro="year-date"/>
+              <group>
+                <text variable="volume" font-style="italic"/>
+              </group>
+              <text variable="page-first"/>
+            </group>
+          </group>
+          <text macro="access" prefix=", "/>
+        </else>
       </choose>
     </layout>
   </bibliography>
